@@ -12,9 +12,16 @@ body{
 
 section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 200px;
+}
+.intro{
+    margin-top: 50px;
+    color: #BE585A;
+    font-size: large;
+    font-weight: 900;
 }
 
 .container {
