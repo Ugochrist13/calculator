@@ -25,10 +25,11 @@ section {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #292036;
-    margin: 10%;
     width: 300px;
-    height: 580px;
     border-radius: 25px;
 }
 
@@ -48,7 +49,7 @@ section {
 }
 .light{
     width: 100%;
-    height: 100px;
+    height: 60px;
     display: flex;
     justify-content: center;
 
@@ -74,6 +75,8 @@ section {
     font-weight: bolder;
     text-align: center;
     transition: .5s ease-out;
+    cursor: pointer;
+
 }
 
 .moon {
@@ -86,40 +89,34 @@ section {
     font-weight: bolder;
     text-align: center;
     transition: .5s ease-out;
-}
+    cursor: pointer;
 
+}
 .inp{
-    width: 100%;
-    height: 40px;
+    width: 80%;
     display: flex;
-    justify-content: right;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    background-color: white;
 }
-
-.inp1{
-    padding-right: 5px;
-    color: white;
-    font-size: 1.2em;
-}
-
-.inp2{
-    padding-right: 5px;
-    color: red;
-    font-size: 1.2em;
-}
-
-.inp3{
+.display{
+    width: 100%;
+    height: 50px;
+    text-align: right;
     padding-right: 25px;
-    color: white;
-    font-size: 1.2em;
+    outline: none;
+    border-style: none;
+    color: black;
+    font-size: 1.5em;
 }
 
 .ans{
     padding-right: 25px;
-    color: white;
+    color: black;
     width: 100%;
     height: 60px;
-    display: flex;
-    justify-content: right;
+   text-align: right;
     font-size: 2em;
     font-weight: bolder;
 }
@@ -132,6 +129,10 @@ section {
     gap: 5px;
     grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(5, auto);
+}
+#equal{
+    grid-column-start: 3;
+    grid-column-end: 5;
 }
 
 .grid div{
@@ -146,6 +147,7 @@ section {
     color: #279585;
     text-align: center;
     font-size: 1.1em;
+    cursor: pointer;
 }
 
 .red button{
@@ -154,14 +156,17 @@ section {
     color: #BE585A;
     text-align: center;
     font-size: 1.1em;
+    cursor: pointer;
 }
 
-.one button{
+.white button{
     background-color: #272833;
     border: none;
     color: white;
     text-align: center;
     font-size: 1.1em;
+    cursor: pointer;
+
 }
 
 #dot button{

@@ -1,14 +1,22 @@
 
+let pressed = 0;
+
 const container = document.querySelector(".container");
 const timeNBar = document.querySelectorAll(".time, .bars");
 const lightCont = document.querySelector(".light-cont");
-const inpNAns = document.querySelectorAll(".inp1, .inp3, .ans");
-const grid = document.querySelectorAll(".green, .red, .one");
-const buttns = document.querySelectorAll(".oneb");
+const input = document.querySelector(".display");
+const ans = document.querySelectorAll(".ans");
+const grid = document.querySelectorAll(".green, .red, .white");
+const buttns = document.querySelectorAll(".white");
 const colButtns = document.querySelectorAll(".redb, .greenb");
 const slide = document.querySelector(".slide");
+const clear = document.querySelector(".clear");
+const optrs = document.querySelectorAll(".oprtrs");
+const del = document.querySelector(".del");
+const equal = document.querySelector(".equal");
 const sunButn = document.querySelector(".sun")
 const moonButn = document.querySelector(".moon")
+const btns = document.querySelectorAll(".inps")
 
 
 let theme = false
@@ -40,9 +48,6 @@ if (theme == true) {
     moonButn.style.fontWeight = "100";
     moonButn.style.fontSize = "1.1em";
     // moonButn.style.display = "none";
-    inpNAns.forEach(conts => {
-        conts.style.color = "white";
-    })
     grid.forEach(conts => {
         conts.style.background = "#272833";
     })
@@ -73,9 +78,7 @@ if (theme == true) {
     moonButn.style.transform = "translateY(-10px)"
     moonButn.style.fontWeight = "900";
     moonButn.style.fontSize = "1.3em";
-    inpNAns.forEach(conts => {
-        conts.style.color = "black";
-    })
+
     grid.forEach(conts => {
         conts.style.background = "lightgray";
     })
@@ -88,6 +91,18 @@ if (theme == true) {
     })
     slide.style.background = "lightgray";
 }
+
+btns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+        input.value += btn.innerText
+    })
+})
+
+optrs.forEach(function(btn){
+    btn.addEventListener("click", function(){
+        input.value += btn.innerText
+    })
+})
 
 moonButn.addEventListener("click", function(conts) {
         container.style.background = "#292036";
@@ -107,9 +122,6 @@ moonButn.addEventListener("click", function(conts) {
         moonButn.style.fontWeight = "100";
         moonButn.style.fontSize = "1.1em";
         // moonButn.style.display = "none";
-        inpNAns.forEach(conts => {
-            conts.style.color = "white";
-        })
         grid.forEach(conts => {
             conts.style.background = "#272833";
         })
@@ -146,9 +158,6 @@ sunButn.addEventListener("click", function(conts) {
         moonButn.style.transform = "translateY(-10px)"
         moonButn.style.fontWeight = "900";
         moonButn.style.fontSize = "1.3em";
-        inpNAns.forEach(conts => {
-            conts.style.color = "black";
-        })
         grid.forEach(conts => {
             conts.style.background = "lightgray";
         })
@@ -170,22 +179,23 @@ sunButn.addEventListener("click", function(conts) {
     }
 });
 
+clear.addEventListener("click", function(){
+    input.value = ""
+})
 
-// function display(val)
-// {
-//     const inpone = document.querySelector(".inp1");
-//     inpone.value += val
-//     const inptwo = document.querySelector(".inp2");
-//     inptwo.value = val
-//     const inpthree = document.querySelector(".inp3");
-//     inpthree.value += val
-//  }
-// function evaluate()
-// {
-//  const sol = document.querySelector(".ans")
-//  sol.value = eval(sol, "inpone.value,inptwo.value,inputhree.value")
-// }
-// function clr()
-// {
-//  document.getElementById("textval").value = ""
-// }
+del.addEventListener("click", function(){
+    input.value = input.value.substr(0, (input.value.length-1))
+})
+
+
+equal.addEventListener("click", function(){
+    // pressed = 1;
+        let soln = eval(input.value)
+        if(Number.isInteger(soln)){
+            ans.value = soln;
+            input.value = ""
+        }else{
+            ans.value = soln.toFixed(2);
+            input.value = ""
+        }
+})
