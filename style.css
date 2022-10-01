@@ -169,9 +169,9 @@ section {
 
 }
 
-#dot button{
-    font-weight: bolder;
-    transform: translateY(-3px);
+.dot, .oprtrs{
+    font-weight: 900;
+    font-size: 1.1em;
 }
 
 button:hover{

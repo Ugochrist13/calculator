@@ -5,7 +5,7 @@ const container = document.querySelector(".container");
 const timeNBar = document.querySelectorAll(".time, .bars");
 const lightCont = document.querySelector(".light-cont");
 const input = document.querySelector(".display");
-const ans = document.querySelectorAll(".ans");
+const ans = document.querySelector(".ans");
 const grid = document.querySelectorAll(".green, .red, .white");
 const buttns = document.querySelectorAll(".white");
 const colButtns = document.querySelectorAll(".redb, .greenb");
@@ -94,13 +94,16 @@ if (theme == true) {
 
 btns.forEach(function(btn){
     btn.addEventListener("click", function(){
+        ans.innerText = ""
         input.value += btn.innerText
     })
 })
 
 optrs.forEach(function(btn){
     btn.addEventListener("click", function(){
-        input.value += btn.innerText
+        if(input.value != ""){
+            input.value += btn.innerText
+        }
     })
 })
 
@@ -181,6 +184,7 @@ sunButn.addEventListener("click", function(conts) {
 
 clear.addEventListener("click", function(){
     input.value = ""
+    ans.innerText = ""
 })
 
 del.addEventListener("click", function(){
@@ -191,11 +195,6 @@ del.addEventListener("click", function(){
 equal.addEventListener("click", function(){
     // pressed = 1;
         let soln = eval(input.value)
-        if(Number.isInteger(soln)){
-            ans.value = soln;
-            input.value = ""
-        }else{
-            ans.value = soln.toFixed(2);
-            input.value = ""
-        }
+        ans.innerText = soln;
+        input.value = ""
 })
