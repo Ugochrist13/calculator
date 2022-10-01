@@ -3,6 +3,7 @@ let pressed = 0;
 
 const container = document.querySelector(".container");
 const timeNBar = document.querySelectorAll(".time, .bars");
+const time = document.querySelector(".timer");
 const lightCont = document.querySelector(".light-cont");
 const input = document.querySelector(".display");
 const ans = document.querySelector(".ans");
@@ -198,3 +199,8 @@ equal.addEventListener("click", function(){
         ans.innerText = soln;
         input.value = ""
 })
+
+setInterval(function(){
+    let d = new Date()
+    time.innerText = d.toLocaleTimeString()
+}, 1000)
