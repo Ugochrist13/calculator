@@ -19,7 +19,10 @@ section {
 }
 .intro{
     margin-top: 50px;
+    margin-bottom: 20px;
     color: #BE585A;
+    width: 300px;
+    text-align: center;
     font-size: large;
     font-weight: 900;
 }
@@ -194,4 +197,13 @@ button:hover{
     height: 5px;
     border-radius: 50px;
     background-color:#272833;;
+}
+
+@media screen and (max-width : 682px) {
+    .intro{
+        color: blue;
+        width: 280px;
+        font-size: small;
+        font-weight: 900;
+    }
 }
